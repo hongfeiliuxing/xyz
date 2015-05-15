@@ -1,0 +1,85 @@
+<div class="container-fluid">
+    <form class="form-horizontal" method="post" action="">
+        <fieldset>
+            <legend>用户信息</legend>
+
+            <div class="control-group">
+                <label class="control-label" for="username">nickname</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="nickname" name="nickname"
+                           value="<%= (nickname || '') %>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">性别</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="sex" name="sex" value="<%= sex %>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">生日</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="birthday" name="birthday" value="<%= birthday || '' %>">
+                </div>
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">头像</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="icon" name="birthday" value="<%= icon || '' %>">
+                </div>
+                <img src="/file/download/<%=icon%>" width="100" height="100">
+            </div>
+            <div class="control-group">
+                <label class="control-label" for="username">显示在照片墙上的照片</label>
+
+                <div class="controls">
+                    <input type="text" class="input-xlarge" id="photo" name="birthday" value="<%=fav_photo_id %>">
+                </div>
+            </div>
+
+            <img id="img" width="100" />
+
+            <div class="form-actions">
+                <br/>
+                <button type="button" class="btn btn-primary" onclick="save()">保存</button>
+            </div>
+        </fieldset>
+    </form>
+</div>
+<script>
+
+    var id = $('#photo').val();
+    if (id) {
+        api_photo(id, function (data) {
+            console.log(JSON.stringify(data));
+            if (data.success) {
+                console.log('/file/download/' + data.message.url);
+                $('#img').attr("src", '/file/download/' + data.message.url);
+            } else {
+                alert(JSON.stringify(data));
+            }
+        })
+    }
+
+    function save(data) {
+        var nickname = $('#nickname').val();
+        var birthday = $('#birthday').val();
+        var sex = $('#sex').val();
+        var icon = $('#icon').val();
+        var favPhoto = $('#photo').val();
+        console.log(nickname);
+//        console.log(nickname.val());
+//        var nickname = $('#nickname').value;
+        api_user_editinfo(nickname, sex, birthday, icon,favPhoto, function (data) {
+            if (data.success) {
+                alert('save success');
+            } else {
+                alert(JSON.stringify(data));
+            }
+        });
+    }
+</script>

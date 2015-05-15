@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<title><%= title %></title>
+<link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+<link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+<body>
+
+<div class="container-fluid">
+	<form class="form-horizontal" method="post" action="/users/regist">
+	  <fieldset>
+	    <legend>用户注册</legend>
+	    <div class="control-group">
+	      <label class="control-label" for="username">用户名</label>
+	      <div class="controls">
+	        <input type="text" class="input-xlarge" id="username" name="username" value="">
+	      </div>
+	    </div>
+	    <div class="control-group">
+	      <label class="control-label" for="password">密码</label>
+	      <div class="controls">
+	        <input type="password" class="input-xlarge" id="password" name="password" value="">
+	      </div>
+	    </div>
+          <div class="control-group">
+              <label class="control-label" for="password">重复密码</label>
+              <div class="controls">
+                  <input type="password" class="input-xlarge" id="password2" name="password2" value="">
+              </div>
+          </div>
+	    <div class="form-actions">
+	      <button type="submit" class="btn btn-primary">注册</button>
+	    </div>
+	  </fieldset>
+	</form>
+</div>
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+</body>
+</html>

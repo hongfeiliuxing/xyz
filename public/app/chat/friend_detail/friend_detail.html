@@ -1,0 +1,41 @@
+<div class="friend-detail">
+    <div style="display: -webkit-box;padding: 10px">
+        <div class="img-rounded" style="width: 20%"  height-equal-width="{{service.url+service.api.file_url+friend.icon}}" ng-if="friend.icon">
+        </div>
+        <div style="-webkit-box-flex: 1;padding: 5px 50px;">
+            <span ng-bind="friend.nickname" style="font-size: 20px;"></span><br>
+            <span ng-bind="friend.age||0"></span>岁
+            <span ng-bind="friend.star"></span>
+        </div>
+    </div>
+    <div>
+        <!--<div>-->
+            <!--星座-->
+        <!--</div>-->
+    </div>
+    <div>
+        <div style="display: flex;padding: 10px">
+            <div style="flex: 1">
+                <img ng-src="resource/images/chat_room/icon-short-line.png" width="100%">
+            </div>
+            <div style="text-align: center">
+                <span>颜值秀</span>
+            </div>
+            <div style="flex:1">
+                <img ng-src="resource/images/chat_room/icon-short-line.png" width="100%">
+            </div>
+        </div>
+        <div class="photos" >
+            <a class="fancybox" rel="gallery" href="{{service.url+service.api.file_url+photo.url}}" ng-repeat="photo in friend.photos track by photo.id">
+                <div  height-equal-width="{{service.url+service.api.file_url+photo.url}}" >
+                    <!--<div style="width: 20%">-->
+                        <!--<img ng-src="resource/images/xyz/icon-heart-solid.png" width="100%">-->
+                        <!--<span>12</span>-->
+                    <!--</div>-->
+                </div>
+            </a>
+
+        </div>
+
+    </div>
+</div>

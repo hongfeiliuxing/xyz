@@ -1,0 +1,27 @@
+<div class="navbar-fixed-top text-center main-navbar">
+	<div style="display:table-cell;width: 100%;">
+		<p  style="color:white" ng-bind="service.config.currentTitle"></p>
+	</div>
+	<div class="left-btn">
+		<a href="{{service.config.backRoute}}" ng-class="{'transparent':!service.config.backRoute}">
+			<img ng-src="resource/images/chat_room/btn-back.png" width="100%">
+		</a>
+	</div>
+	<div class="right-btn" ng-class="{'transparent':service.config.backRoute}">
+		<!-- Single button -->
+		<div class="btn-group">
+			<button type="button" class="btn dropdown-toggle" style="background-color: #c81324" data-toggle="dropdown" aria-expanded="false">
+				<span id="sex">筛选</span><span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+				<li><a change-sex="null">所有</a></li>
+				<li><a change-sex="boy">男</a></li>
+				<li><a change-sex="girl">女</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- 占位-->
+<div class="navbar-static-top main-navbar">
+    <p class="text-center">上面没有东西哟</p>
+</div>

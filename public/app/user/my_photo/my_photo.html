@@ -1,0 +1,32 @@
+<div class="my-photo">
+    <div class="top" style="display: table;width: 100%;text-align: center">
+        <div style="display: table-cell;width: 50%" ng-class="{'selected':rankType=='date'}" change-rank-data3="date">
+            <span>按时间排列</span>
+        </div>
+        <div style="display: table-cell" ng-class="{'selected':rankType=='good'}" change-rank-data3="good">
+            <span>按点赞数排列</span>
+        </div>
+    </div>
+    <div dr-window-infinite-scroll="onScroll()">
+        <div ng-repeat="photo in service.config.myPhotoList track by photo.id | orderBy:'+date'">
+            <div style="padding: 10px 25%">
+                <a class="fancybox" rel="grup" href="{{service.url+service.api.file_url+photo.url}}">
+                    <img ng-src="{{service.url+service.api.file_url+photo.url}}" width="100%">
+                </a>
+            </div>
+            <div style="background-color: #f1f2f3;padding: 5px 10px;display: table;width: 100%">
+                <div style="display: table-cell;text-align: center;  padding: 0 20px;">
+                    <span ng-bind="photo.date | date:'MM-dd'"></span>
+                </div>
+                <div style="display: table-cell">
+                    <img ng-src="resource/images/xyz/icon-heart-solid.png" width="30px">
+                    <span ng-bind="photo.good||0"></span>
+                </div>
+                <div style="display: table-cell;text-align: right">
+                    <button class="btn btn-default" del-photo="{{photo.id}}" data-loading-text="删除中">删除</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

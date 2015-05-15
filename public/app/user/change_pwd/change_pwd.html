@@ -1,0 +1,25 @@
+<div class="change-pwd">
+    <form name="pwdform" class="form-horizontal">
+        <div class="form-group">
+            <label for="oldPwd" class="control-label col-xs-3 col-xs-offset-1">原密码:</label>
+            <div class="col-xs-7">
+                <input id="oldPwd" type="password" class="form-control" ng-model="oldPwd"  required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="newPwd" class="control-label col-xs-3 col-xs-offset-1">新密码:</label>
+            <div class="col-xs-7">
+                <input id="newPwd" type="password" class="form-control" ng-model="pwd"  required>
+            </div>
+        </div><div class="form-group">
+        <label for="newPwd2" class="control-label col-xs-3 col-xs-offset-1">确认密码:</label>
+        <div class="col-xs-7">
+            <input id="newPwd2" type="password" class="form-control" ng-model="pwd2"  required>
+        </div>
+    </div>
+        <div style="text-align: center">
+            <button class="btn btn-default" data-loading-text="修改中" ng-disabled="pwdform.$invalid || (pwd!=pwd2)" change-pwd>确定</button>
+        </div>
+
+    </form>
+</div>

@@ -1,0 +1,33 @@
+<div class="integral-rank">
+    <div class="top" style="display: table;width: 100%;text-align: center">
+        <div style="display: table-cell;width: 50%" ng-class="{'selected':rankType=='day'}" change-rank-data2="day">
+            <span>每日排行</span>
+        </div>
+        <div style="display: table-cell" ng-class="{'selected':rankType=='all'}" change-rank-data2="all">
+            <span>总排行</span>
+        </div>
+    </div>
+    <div class="content">
+        <!--<a href="#chat_room?userId={{rank.user_id}}&backRoute=integral_rank" >-->
+        <div class="rank" ng-repeat="rank in ranks track by rank.icon" chat="{{rank.user_id}},integral_rank">
+            <div class="number" style="color:{{rank.color}}">
+                <div style="padding: 0 10px">
+                    <span ng-bind="$index+1"></span>
+                </div>
+                <div style="width: 100%" height-equal-width="{{service.url+service.api.file_url+rank.icon}}">
+                </div>
+            </div>
+
+            <div style="-webkit-box-flex: 1;padding: 5px 50px;">
+                <span ng-bind="rank.nickname" style="font-size: 20px;color:{{rank.color}}"></span><br>
+                <span ng-bind="rank.age||0"></span>岁
+                <span ng-bind="rank.star"></span>
+            </div>
+            <div style="color: white;background-color:{{rank.color}};border-radius: 3px;padding: 1px 3px">
+                <span ng-bind="rank.jifen||0"></span>
+            </div>
+
+        </div>
+        <!--</a>-->
+    </div>
+</div>

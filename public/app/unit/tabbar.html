@@ -1,0 +1,16 @@
+<!--NavBar bottom (TabBar)-->
+<div class="navbar navbar-default navbar-fixed-bottom main-tabbar" role="navigation">
+    <ul class="nav nav-tabs nav-justified-xs">
+        <li role="presentation" ng-repeat="tab in service.config.tabs track by tab.icon">
+            <a  href="{{tab.route}}"><!-- ng-click="tab.active=true;" -->
+                <div>
+                    <img ng-src="{{tab.icon}}-gray.png" ng-if="!tab.active" width="{{tab.iconW}}">
+                    <img ng-src="{{tab.icon}}-red.png" ng-if="tab.active" width="{{tab.iconW}}">
+                    <br>
+                    <span ng-class="{true:'red-text',false:'gray-text'}[tab.active]" ng-bind="tab.title"></span>
+                    <span class="text-center icon" ng-if="tab.number && service.user.isLogin" ng-bind="tab.number"></span>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>

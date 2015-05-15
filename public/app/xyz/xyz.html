@@ -1,0 +1,78 @@
+
+<div class="xyz-content">
+    <div ng-include="'app/unit/isLogin.html'"></div>
+    <!-- 昵称区域-->
+    <div class="nickname" ng-if="service.user.isLogin">
+        <div style="padding: 3%;width:20%">
+            <!--<img ng-src="{{service.url+service.api.file_url+service.user.icon}}" width="100%" class="img-rounded" ng-if="service.user.icon">-->
+            <!--<img ng-src="resource/images/touxiang.png" width="100%" class="img-rounded" ng-if="!service.user.icon">-->
+            <a class="fancybox" href="{{service.url+service.api.file_url+service.user.icon}}">
+                <div style="width: 100%;" height-equal-width="{{service.url+service.api.file_url+service.user.icon}}">
+                </div>
+            </a>
+        </div>
+        <div style="-webkit-box-flex: 1">
+            <p ng-if="service.user.nickname" ng-bind="service.user.nickname"></p>
+            <p ng-if="!service.user.nickname" ng-bind="service.user.name"></p>
+        </div>
+        <div class="text-right" style="padding-right: 2%" ng-if="service.user.lastLogin">
+            <p ng-bind="service.user.lastLogin | date:'MM-dd'"></p>
+        </div>
+    </div>
+    <!-- 滑动相册-->
+    <div class="album" ng-swipe-left="swipeLeft()" ng-swipe-right="swipeRight()" ng-cloak>
+        <div class="album-content" style="display:-webkit-box;" ng-if="albumList.length>0">
+            <a class="fancybox" rel="gallery" href="{{service.url+service.api.file_url+album.url}}" ng-repeat="album in albumList track by album.photo_id">
+                <div class="album-item" style="color: white;text-align: center;background-image:url({{service.url+service.api.file_url+album.url}});" ng-bind="album.nickname">
+                </div>
+            </a>
+        </div>
+    </div>
+    <!-- 个性签名-->
+    <div class="table-div text-center" style="padding:2%" ng-if="service.user.isLogin && service.user.sign">
+        <div>
+            <span ng-bind="service.user.sign"><span>
+        </div>
+    </div>
+
+    <div class="table-div" ng-if="albumList.length>0">
+        <div>
+            <button class="btn btn-style1" switch>换一换</button>
+        </div>
+        <div>
+            <button class="btn btn-style1" good-photo="{{albumList[2].photo_id}}" ng-disabled="albumList[2].user_id == service.user.user_id">
+                <img ng-src="resource/images/xyz/icon-heart-hollow.png" width="21px" ng-if="!xyz.isGood">
+                <img ng-src="resource/images/xyz/icon-heart-solid.png" width="21px" ng-if="xyz.isGood">
+                {{albumList[2].count||0}}
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-style1" chat="{{albumList[2].user_id}},xyz" ng-disabled="albumList[2].user_id == service.user.user_id">
+                <img ng-src="resource/images/tabbar/icon-chat-gray.png" width="28px">
+            </button>
+        </div>
+        <div>
+            <button class="btn btn-style1 disabled">分享</button>
+        </div>
+    </div>
+
+    <div class="table-div">
+        <div>
+            <a href="#yz_rank?backRoute=xyz">
+                <button class="btn btn-style2">查看颜值榜</button>
+            </a>
+        </div>
+        <div>
+            <a href="#integral_rank?backRoute=xyz">
+            <button class="btn btn-style2">查看积分榜</button>
+            </a>
+        </div>
+    </div>
+    <div style="padding: 2% 1%">
+        <input type="file" style="width: 90%;height: 38px;border: 1px solid black;position: absolute;opacity: 0" ng-if="service.user.isLogin" nv-file-select="" uploader="uploader">
+        <button class="btn show-photo" show-photo>我也要秀颜值</button>
+    </div>
+    <div>
+
+    </div>
+</div>

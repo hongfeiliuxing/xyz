@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+
+
+<div class="well jumbotron">
+    <div class="home"></div>
+
+</div>
+
+个人信息
+<br/>
+
+<div class="info well jumbotron"></div>
+照片墙
+<br/>
+
+<div class="show well jumbotron"></div>
+<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://cdn.bootcss.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script src='/javascripts/ejs_production.js'></script>
+<script src='/api/project.js'></script>
+<script type="text/javascript">
+
+    api_user_isLogin(function (res) {
+        console.log(res);
+
+        var html = new EJS({url: '/template/index_login.ejs'}).render(res);
+        $('.home').html(html);
+        if (!res.success) {
+            return;
+        }
+        //初始化照片墙、个人信息
+        api_photo_list(function (data) {
+            if (data.success) {
+                var html = new EJS({url: '/template/index_personal_info.ejs'}).render(data.message);
+                $('.info').html(html);
+            }
+        });
+
+        api_user_info(function(data) {
+            console.log(data);
+            if(data.success) {
+                var html = new EJS({url:'/template/index_personal_info.ejs'}).render(data.message);
+                $('.info').html(html);
+            }
+        });
+
+    });
+
+</script>
+</body>
+</html>

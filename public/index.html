@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>秀颜值</title>
+    <link rel="stylesheet" href="resource/lib/bower_components/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="resource/css/animate.css">
+    <link rel="stylesheet" type="text/css" href="resource/css/app.css">
+    <link rel="icon" href="resource/images/logo.png">
+</head>
+<body ng-app="appModule" user-info><!--user-info location-tab-index-->
+<div class="container-fluid" ng-controller="AppController">
+    <div ng-include="'app/unit/navbar.html'"></div>
+
+    <div ng-view class="row" class="animated fadeInDown"></div>
+
+    <div ng-include="'app/unit/tabbar.html'" ng-if="!service.config.backRoute"></div>
+    <!-- modal -->
+    <div ng-include="'app/login/login.html'" ng-controller="LoginController"></div>
+    <div ng-include="'app/logout/logout.html'"></div>
+    <!--<div></div>-->
+    <div class="lunch-page" style="background-image:url('resource/images/po.jpg');background-size:cover;position: absolute;left: 0;top:0;width: 100%;height: 100%;background-color: white;z-index: 10000">
+        <!--<img src="resource/images/po.jpg" width="100%">-->
+    </div>
+</div>
+
+
+<script src="resource/lib/web-socket-js/swfobject.js"></script>
+<script src="resource/lib/web-socket-js/web_socket.js"></script>
+<script src="resource/lib/bower_components/jquery/dist/jquery.js"></script>
+<script src="resource/lib/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="resource/lib/bower_components/angular/angular.js"></script>
+<script src="resource/lib/bower_components/angular-route/angular-route.js"></script>
+<script src="resource/lib/bower_components/angular-touch/angular-touch.js"></script>
+<script src="resource/lib/bower_components/angular-file-upload/angular-file-upload.js"></script>
+<script src="resource/lib/bower_components/angular-infinite-scroll/src/infinite-scroll.js"></script>
+<script src="resource/lib/fixImageTool.js"></script>
+
+<!--<script src="resource/lib/bower_components/angular-animate/angular-animate.js"></script>-->
+<!-- <script src="lib/bower_components/angular-cookies/angular-cookies.js"></script> -->
+
+<!-- 引入 fancyBox 核心文件（必须）-->
+<link rel="stylesheet" href="resource/lib/bower_components/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
+<script type="text/javascript" src="resource/lib/bower_components/fancybox/source/jquery.fancybox.pack.js"></script>
+
+<script src="app/app.js"></script>
+<script type="text/javascript" src="app/service.js"></script>
+<script type="text/javascript" src="app/xyz/xyz.js"></script>
+<script type="text/javascript" src="app/login/login.js"></script>
+<script type="text/javascript" src="app/chat/chat.js"></script>
+<script type="text/javascript" src="app/chat/chat_room/chatRoom.js"></script>
+<script type="text/javascript" src="app/user/user.js"></script>
+<script type="text/javascript" src="app/xyz/take_photo/takePhoto.js"></script>
+<script type="text/javascript" src="app/user/my_photo/myPhoto.js"></script>
+<script type="text/javascript" src="app/xyz/yz_rank/yzRank.js"></script>
+<script type="text/javascript" src="app/xyz/integral_rank/integralRank.js"></script>
+<script type="text/javascript" src="app/user/edit_info/editInfo.js"></script>
+<script type="text/javascript" src="app/user/change_pwd/changePwd.js"></script>
+<script type="text/javascript" src="app/chat/friend_detail/friendDetail.js"></script>
+<!--<script src="app/controller/main.js"></script>-->
+<!--<script src="app/controller/login.js"></script>-->
+<!--<script src="app/controller/chat_room.js"></script>-->
+
+<script type="text/javascript">
+    WEB_SOCKET_SWF_LOCATION = "resource/lib/web-socket-js/WebSocketMain.swf";
+</script>
+
+</body>
+</html>

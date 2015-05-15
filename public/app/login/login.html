@@ -1,0 +1,127 @@
+<div id="modal-login" class="modal fade" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- <div class="modal-dialog"> -->
+    <div>
+        <div class="modal-header">
+            <button class="close" data-dismiss="modal" aria-label="Close">
+                <img ng-src="resource/images/login/icon-close.png" width="20px">
+            </button>
+            <p class="modal-title">登录</p>
+        </div>
+        <div class="modal-body text-center">
+
+            <form name="loginForm" novalidate ng-show="showIndex==0">
+                <div class="login-fields">
+                    <div>
+                        <div style="width:26px;padding:4px;">
+                            <img ng-src="resource/images/login/icon-user.png" width="100%">
+                        </div>
+                        <div class="vline"></div>
+                        <div>
+                            <input type="text" name="name" placeholder="手机号" ng-model="service.user.name" required>
+                        </div>
+                    </div>
+                    <div style="margin-top:1.5%">
+                        <div style="width:26px;padding:4px">
+                            <img ng-src="resource/images/login/icon-lock.png" width="100%">
+                        </div>
+                        <div class="vline"></div>
+                        <div>
+                            <input type="password" name="pwd" placeholder="密码" ng-model="service.user.pwd"
+                                   required>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: right;padding: 0 10%;">
+                    <label style="text-decoration: underline" ng-click="showIndex=4">忘记密码</label>
+                </div>
+                <div class="login-btns">
+                    <button class="btn login" data-loading-text="登录中" login
+                            ng-disabled="loginForm.$invalid">登录
+                    </button><br>
+                    <button class="btn regist" ng-click="showIndex=1">注册</button>
+                </div>
+            </form>
+
+            <form name="phoneForm" ng-show="showIndex==1 || showIndex==4" novalidate>
+                <div class="input-group">
+                    <input type="text" name="mobile" class="form-control" placeholder="请输入您的手机号码" ng-model="mobile"
+                           ng-pattern="/^1[3|4|5|7|8][0-9]\d{8}$/" required>
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button" style="background-color: #86bd71;color: white"
+                                ng-disabled="phoneForm.mobile.$invalid" send-code>获取验证码
+                        </button>
+                      </span>
+                </div>
+                <div class="input-group" style="margin-top: 10px">
+                    <span class="input-group-addon">验证码</span>
+                    <input type="text" class="form-control" ng-model="code" ng-pattern="/^\d{6}$/" required>
+                </div>
+                <div style="padding: 10px 0">
+                    <button class="btn next" ng-disabled="phoneForm.$invalid" vertify-code>下一步</button>
+                </div>
+            </form>
+
+            <form name="registFrom" novalidate style="text-align: left" ng-show="showIndex==2">
+                <div style="display: -webkit-box">
+                    <div style="-webkit-box-flex: 1;">
+                        <div style="padding: 5px 0">
+                            <label class="radio-inline" style="padding-left: 0">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别<span style="color: red">*</span>:</label>
+                            <label class="radio-inline">
+                                <input type="radio" checked="checked" ng-model="sex" ng-value="true" required>男
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" ng-model="sex" ng-value="false" required>女
+                            </label>
+                        </div>
+                        <div style="padding: 5px 0">
+                            <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;昵称：</label>
+                            <input type="text" style="width: 60%" ng-model="nickname" required ng-pattern="/^\D+.{1,10}$/"><span style="color: red">*</span>
+                        </div>
+                    </div>
+                    <div style="width: 80px;">
+                        <input type="file" style="position: absolute;border: 1px solid black;height: 80px;opacity: 0" nv-file-select="" uploader="uploader">
+                        <img width="100%" ng-src="resource/images/login/icon-take-photo.png" ng-if="!uploader.queue.length">
+                        <div ng-repeat="item in uploader.queue" ng-if="$last">
+                            <img width="100%" id="icon" ng-thumb="{ file: item._file }">
+                        </div>
+                    </div>
+                </div>
+                <div style="padding: 5px 0">
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生日：</label>
+                    <input type="date" style="width: 65%;" ng-model="birthday" required><span style="color: red">*</span>
+                </div>
+                <div style="padding: 5px 0">
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;身高：</label>
+                    <input type="number" style="width: 55%;" ng-model="height"><small>CM</small>
+                </div>
+                <div style="padding: 5px 0;">
+                    <label>登录密码：</label>
+                    <input type="password" style="width:65%" ng-model="pwd" required><span style="color: red">*</span>
+                </div>
+                <div style="padding: 5px 0;">
+                    <label>确认密码：</label>
+                    <input type="password" style="width: 65%" ng-model="pwd2" required><span style="color: red">*</span>
+                </div>
+                <div style="padding: 10px 0;text-align: center">
+                    <button class="btn regist" data-loading-text="注册中" regist>注册</button>
+                </div>
+            </form>
+
+            <form name="pwdFrom" novalidate style="text-align: left" ng-show="showIndex==3">
+                <div style="padding: 5px 0;">
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;新密码：</label>
+                    <input type="password" style="width:65%" ng-model="pwd" required>
+                </div>
+                <div style="padding: 5px 0;">
+                    <label>确认密码：</label>
+                    <input type="password" style="width: 65%" ng-model="pwd2" required>
+                </div>
+                <div style="padding: 10px 0;text-align: center">
+                    <button class="btn regist" ng-disabled="pwdFrom.$invalid || (pwd!=pwd2)" modify-password>确定</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <!-- </div> -->
+</div>

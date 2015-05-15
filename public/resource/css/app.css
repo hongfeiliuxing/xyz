@@ -1,0 +1,372 @@
+body>div {
+    overflow-x: hidden;
+}
+
+.gray-text {
+    color: gray;
+}
+
+.red-text {
+    color: rgb(210, 16, 29);
+}
+
+.table-div {
+    display: table;
+    width: 100%;
+}
+
+.xyz-content,.chat-content,.user-content {
+    padding-bottom:52px;
+}
+
+/*login*/
+
+.login-fields>div {
+    display: table;
+    margin: 0 auto;
+    border: 1px solid #a7a7a6;
+    border-radius: 2px;
+    width: 80%;
+}
+
+.login-fields>div>div {
+    display: table-cell;
+}
+
+.login-fields input {
+    border: 0;
+    width: 90%;
+}
+
+.login-fields .vline {
+    width: 1px;
+    background-color: #a7a7a6;
+    border-top: 4px solid white;
+    border-bottom: 4px solid white;
+}
+
+.login-btns .btn.login,.login-btns .btn.regist {
+    width: 80%;
+    background-color:#cb0e1f;
+    color: white;
+}
+
+.login-btns .btn.regist {
+    margin-top:1.5%;
+    background-color:#df3641;
+}
+
+
+
+.login-btns .btn:focus,.login-btns .btn:active,.login-btns .btn:hover,.login-btns .btn.focus
+{
+    color: white;
+}
+
+#modal-login ,#modal-logout{
+    top:30%;
+    width:80%;
+    margin:0 auto;
+    max-width: 400px;
+}
+
+#modal-login>div ,#modal-logout>div{
+    background-color:white;
+}
+
+#modal-login .modal-header ,#modal-logout .modal-header{
+    background-color: #ca0f1d;
+    border:0;
+    color: white;
+}
+
+#modal-login .modal-header button,#modal-logout .modal-header button{
+    opacity:1.0;
+}
+
+
+#modal-login .modal-title {
+    opacity:0;
+    margin-right:50%;
+}
+
+.btn.next,.btn.regist{
+    width: 80%;
+    background-color:#cb0e1f;
+    color: white;
+}
+
+
+/*main*/
+.main-navbar {
+    background-color: #ca0f1d;
+    color: white;
+    padding-top: 10px;
+    display:table;
+    width:100%;
+    font-size:24px;
+    /*border-bottom: 1px solid white;*/
+}
+
+.main-navbar .transparent {
+    opacity: 0;
+}
+
+.main-navbar.navbar-static-top {
+    background-color:white;
+    opacity: 0;
+}
+
+.main-navbar .left-btn,.main-navbar .right-btn {
+    position:absolute;
+    width:10%;
+    max-width:43px;
+    max-height: 43px;
+}
+
+.main-navbar .left-btn {
+    left: 0;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.main-navbar .right-btn {
+    right: 0;
+    text-align: right;
+    padding-right: 60px;
+}
+
+
+.main-tabbar .icon {
+    width:20px;
+    height:20px;
+    border-radius:10px;
+    background-color:red;
+    position:absolute;
+    top:0;
+    color:white;
+    left: 54%;
+}
+
+.main-tabbar li >a {
+    padding: 5px 0 0 0;
+}
+
+
+
+
+/*xyz*/
+
+.xyz-content {
+    overflow-x: hidden;
+}
+
+.xyz-content .table-div>div {
+    display: table-cell;
+}
+
+.xyz-content .nickname {
+    display: -webkit-box;
+    display: -moz-box;
+    -moz-box-align: center;
+    -webkit-box-align: center;
+}
+
+.xyz-content button {
+    width: 100%;
+}
+
+.xyz-content .btn-style1 {
+    color:gray;
+    background-color:#e5e6e7;
+    border-radius:0;
+    border-right: 1px solid #cbcccd;
+    border-top: 1px solid #cbcccd;
+}
+
+.xyz-content .btn-style2 {
+    color:gray;
+    background-color:white;
+    border-radius:0;
+    border-right: 1px solid #cbcccd;
+    border-bottom: 1px solid #cbcccd;
+}
+
+.xyz-content .show-photo{
+    width: 100%;
+    background-color:#cb0e1f;
+    border:0;
+    color:white;
+    font-size: 18px;
+}
+
+.xyz-content .album-item {
+    height:100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin: 0 1px;
+}
+
+
+/*take-photo*/
+.take-photo {
+    background-image: url("../images/xyz/bg-takephoto.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+
+.take-photo img {
+    border: 5px solid white;
+}
+
+.take-photo button{
+    width: 30%;
+    background-color:#cb0e1f ;
+    color: white;
+}
+
+/*yz-rank*/
+.yz-rank {
+    /*padding: 0px 5px;*/
+}
+
+.yz-rank .top,.integral-rank .top,.my-photo .top{
+    background-color: #e5e6e7;
+}
+
+.yz-rank .top>div,.integral-rank .top>div,.my-photo .top>div{
+    border-left: 1px solid #c8c9ca;
+    border-bottom: 1px solid #c8c9ca;
+    padding: 10px 0;
+}
+
+.yz-rank .top .selected,.integral-rank .top .selected,.my-photo .top .selected{
+    background-image:url('../images/xyz/bg-arrow-up.png');
+    background-size: 100% 100%;
+}
+
+.yz-rank .content,.integral-rank .content {
+    padding: 0px 5px;
+}
+
+.yz-rank .rank,.integral-rank .rank {
+    width: 100%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    box-align:center;
+    -moz-box-align: center;
+    -webkit-box-align:center;
+    padding: 10px 2px;
+    border-bottom:1px solid #e2e3e4;
+}
+
+.yz-rank .rank .number{
+    background-color: #b2b3b4;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    color:white;
+    width: 20%;
+    display: -webkit-box;
+    display: -moz-box;
+    display: box;
+    box-align:center;
+    -moz-box-align: center;
+    -webkit-box-align:center;
+}
+
+.integral-rank .rank .number{
+    color:#b2b3b4;
+    width: 20%;
+    display: -webkit-box;
+    display: -moz-box;
+    box-align:center;
+    -moz-box-align: center;
+    -webkit-box-align:center;
+}
+
+/*chat*/
+.chat-content .icon {
+    width:20%;
+}
+
+.chat-content .icon span {
+    border-radius:10px;
+    width:20px;
+    height:20px;
+    background-color:red;
+    color:white;
+    float: right;
+    margin-top: -10px;
+    margin-right: -10px;
+}
+
+.chat-content>a {
+    text-decoration:none;
+}
+
+.chat-content>a>div {
+    margin:0;
+    padding: 10px;
+    border-bottom:1px solid #cbcccd;
+    display: -webkit-box;
+    display: -moz-box;
+    color: black;
+}
+
+.chat-content>a>div:hover {
+    background-color: #dedddf;
+}
+
+.chat-room {
+    padding-bottom: 35px
+}
+
+.chat-room .content
+{
+    padding:0px 2%;
+    font-size:18px;
+    display: -webkit-box;
+    display: -moz-box;
+    -webkit-box-align: center;
+}
+
+.chat-room .chat-bubble {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    word-break: break-all; 
+}
+
+.chat-room .chat-bubble,.chat-room .chat-bubble span {
+    border-radius:10px;
+}
+
+.friend-detail .photos{
+    display: flex;
+    display: -webkit-flex;
+    flex-flow: row wrap;
+    -webkit-flex-flow: row wrap;
+}
+
+.friend-detail .photos>a {
+    width: 32%;
+    margin: 0.65%;
+}
+
+
+
+/*user*/
+.user-content .btn.logout {
+    background-color: #cb0e1f;
+    color: white;
+    width:100%;
+}
+
+.edit-info,.change-pwd {
+    padding-top: 20px;
+}

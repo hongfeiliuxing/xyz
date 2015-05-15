@@ -1,0 +1,60 @@
+<!-- 聊天室 -->
+<div class="chat-room">
+    <div ng-if="service.config.messageRecord" >
+        <div style="text-align: center" ng-if="!isAll">
+            <button class="btn btn-default" data-loading-text="加载中" load-more>加载更多</button>
+        </div>
+        <div ng-repeat="message in service.config.messageRecord | orderBy:'+date'">
+            <div ng-if="message.from_id != service.user.user_id">
+                <div class="text-center" style="padding:10px 0;">
+                    <span ng-bind="message.date | date:'MM-dd hh:mm'" ng-if="!isToday(message.date)"></span>
+                    <span ng-bind="message.date | date:'hh:mm'" ng-if="isToday(message.date)"></span>
+                </div>
+                <div class="content">
+                    <div style="width:17%;">
+                        <!--<a class="fancybox" href="{{service.url+service.api.file_url+friendIcon}}">-->
+                        <a href="#friend_detail?userId={{friendId}}&backRoute=chat_room">
+                            <div class="img-rounded" height-equal-width="{{service.url+service.api.file_url+friendIcon}}"></div>
+                        </a>
+                        <!--<img ng-src="" width="100%" class="img-rounded">-->
+                    </div>
+                    <div style="text-align:right;width:8%;padding-left: 3%;">
+                        <img ng-src="resource/images/chat_room/icon-arrow-left.png" width="100%">
+                    </div>
+                    <div class="chat-bubble" chat-bubble="left">
+                        <span ng-bind="message.msg.text"></span>
+                    </div>
+                </div>
+            </div>
+            <div ng-if="message.from_id == service.user.user_id">
+                <div class="text-center" style="padding:10px 0;">
+                    <span ng-bind="message.date | date:'MM-dd hh:mm'" ng-if="!isToday(message.date)"></span>
+                    <span ng-bind="message.date | date:'hh:mm'" ng-if="isToday(message.date)"></span>
+                    <!--<span ng-bind="isToday(message.date)"></span>-->
+                </div>
+                <div class="content">
+                    <div class="chat-bubble" style="text-align:right" chat-bubble="right">
+                        <span ng-bind="message.msg.text"></span>
+                    </div>
+                    <div style="text-align:right;width:8%;padding-right: 3%;">
+                        <img ng-src="resource/images/chat_room/icon-arrow-right.png" width="100%">
+                    </div>
+                    <div style="width:17%;">
+                        <div class="img-rounded" height-equal-width="{{service.url+service.api.file_url+service.user.icon}}"></div>
+                        <!--<img ng-src="{{service.url+service.api.file_url+service.user.icon}}" width="100%" class="img-rounded">-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="navbar-fixed-bottom">
+        <div style="display:-webkit-box;width:100%;">
+            <div style="-webkit-box-flex: 1;">
+                <textarea class="form-control" rows="1" style="width:100%"></textarea>
+            </div>
+            <div>
+                <button class="btn btn-default" style="width:100%">发送</button>
+            </div>
+        </div>
+    </div>
+</div>

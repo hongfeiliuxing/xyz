@@ -1,0 +1,32 @@
+//ToDo senpng
+.nav-justified-xs{
+  .nav-justified(160px);//@screen-xs-min/3
+}
+
+//ToDo senpng
+.nav-justified(@minWidth) {
+  width: 100%;
+
+  > li {
+    float: none;
+    > a {
+      text-align: center;
+      margin-bottom: 5px;
+    }
+  }
+
+  > .dropdown .dropdown-menu {
+    top: auto;
+    left: auto;
+  }
+
+  @media (min-width: @minWidth) {
+    > li {
+      display: table-cell;
+      width: 1%;
+      > a {
+        margin-bottom: 0;
+      }
+    }
+  }
+}
