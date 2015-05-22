@@ -31,8 +31,8 @@ module.exports.sendLoginCode = function (mobile, code, cb) {
 
     superagent.post('http://106.ihuyi.cn/webservice/sms.php?method=Submit')
         .send({
-            account: 'cf_xiuyanzhi', password: 'Paiwode168', mobile: mobile,
-            content: '您的验证码是：【' + code + '】。请不要把验证码泄露给其他人。'
+            account: 'cf_paiwode', password: 'pwd1816168', mobile: mobile,
+            content: '感谢您的注册！您的验证码是：【' + code + '】。请不要把验证码泄露给其他人。如非本人操作，可不用理会！'
         })
         .set("Content-Type", "application/x-www-form-urlencoded")
         .set("Connection", "Keep-Alive")

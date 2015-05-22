@@ -152,7 +152,7 @@ loginModule.directive('sendCode', ['$rootScope', 'loginService', 'service', '$ti
             $scope.$on(SERVICE_SEND_CODE, function (event, data) {
                 console.log(data.message);
                 if (data.success) {
-                    alert(data.message);
+                    //alert(data.message);
                     countDown($element, 60);
                 } else {
                     var msg = data.message;

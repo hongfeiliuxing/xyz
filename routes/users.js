@@ -960,10 +960,10 @@ function JSONP(res, req, data) {
 
 function sendMSG(mobile, code, res, type) {
     console.log(code);
-    //my_util.sendLoginCode(mobile,code,function (err,msg){
-    //    if (err) return res.send({success:false,message:err})
-    //    res.send({success:true,message:code,msg:'已经向'+ mobile +'发送验证码'});
-    //})
+    my_util.sendLoginCode(mobile,code,function (err,msg){
+        if (err) return res.send({success:false,message:err})
+        res.send({success:true,message:code,msg:'已经向'+ mobile +'发送验证码'});
+    })
     if (type == 1) {
         // 修改手机号
     } else {
