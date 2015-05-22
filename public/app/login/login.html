@@ -38,7 +38,7 @@
                     <button class="btn login" data-loading-text="登录中" login
                             ng-disabled="loginForm.$invalid">登录
                     </button><br>
-                    <button class="btn regist" ng-click="showIndex=1">注册</button>
+                    <button class="btn regist" ng-click="showIndex=2">注册</button>
                 </div>
             </form>
 
@@ -87,8 +87,12 @@
                     </div>
                 </div>
                 <div style="padding: 5px 0">
-                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;生日：</label>
-                    <input type="date" style="width: 65%;" ng-model="birthday" required><span style="color: red">*</span>
+                    <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;星座：</label>
+                    <!--<input type="date" style="width: 65%;" ng-model="birthday" required>-->
+                    <select ng-model="star" required>
+                        <option ng-repeat="conste in constellation">{{conste}}</option>
+                    </select>
+                    <span style="color: red">*</span>
                 </div>
                 <div style="padding: 5px 0">
                     <label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;身高：</label>

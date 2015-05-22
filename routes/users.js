@@ -295,7 +295,8 @@ router.post('/regist', function (req, res, next) {
     if (!input.nickname) return res.send({success: false, message: 'nickname 不能为空'});
     if (input.sex == undefined) return res.send({success: false, message: 'sex 不能为空'});
     //if (!input.age) return res.send({success: false, message: 'age 不能为空'});
-    if (!input.birthday) return res.send({success:false,message:'birthday 不能为空'});
+    //if (!input.birthday) return res.send({success:false,message:'birthday 不能为空'});
+    if(!input.star) return res.send({success:false,message:'星座不能为空'});
     if (!input.icon) return res.send({success: false, message: 'icon 不能为空'});
     //if (!input.area) return res.send({success:false,message:'area 不能为空'});
     //if (input.sign) userinfo.sign = input.sign;
@@ -327,9 +328,12 @@ router.post('/regist', function (req, res, next) {
     var userinfo = {
         nickname: input.nickname,
         sex: input.sex != 'false' && input.sex != 0,
-        age: new Date().getYear() -new Date(input.birthday).getYear(),
-        birthday:new Date(input.birthday),
-        star: getStar(new Date(input.birthday)),
+        //age: new Date().getYear() -new Date(input.birthday).getYear(),
+        //birthday:new Date(input.birthday),
+        //star: getStar(new Date(input.birthday)),
+        age:null,
+        birthday:null,
+        star:input.star,
         icon: input.icon,
         height:input.height||null
         //area:input.area

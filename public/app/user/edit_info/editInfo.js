@@ -13,6 +13,9 @@ editInfoModule.controller('EditInfoCtrl',['$scope','$location','service', functi
     $scope.reset();
 
     service.config.backRoute = '#'+$location.search().backRoute;
+
+    $scope.constellation = ["白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天平座","天蝎座","射手座","魔蝎座","水瓶座","双鱼座"];
+
 }]);
 
 editInfoModule.directive('editInfo',['$timeout','service', function ($timeout, service) {

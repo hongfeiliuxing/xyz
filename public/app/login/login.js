@@ -56,6 +56,8 @@ loginModule.controller('LoginController', ['$scope', 'service', 'FileUploader', 
         console.info('onCompleteAll');
     };
 
+    scope.constellation = ["白羊座","金牛座","双子座","巨蟹座","狮子座","处女座","天平座","天蝎座","射手座","魔蝎座","水瓶座","双鱼座"];
+
 }]);
 
 loginModule.factory('loginService', ['$rootScope', 'service', '$http', function (rootScope, service, http) {
@@ -377,7 +379,7 @@ iElm.bind('click', function () {
 
                     if(!$scope.pwd)err = "请输入密码";
                     if($scope.pwd != $scope.pwd2)err = "两次密码输入不一样";
-                    if(!$scope.birthday)err = "请选择生日";
+                    if(!$scope.star)err = "请选择星座";
                     if(!$scope.nickname)err = "昵称不可用";
                     if($scope.sex == undefined)err = "请选择性别";
                     if(!angular.element('#icon').attr('src'))err = "请上传头像";
@@ -391,7 +393,7 @@ iElm.bind('click', function () {
                     },2000);
 
                 }else{
-                    service.net.regist($scope.mobile,$scope.code,$scope.nickname,$scope.sex,$scope.birthday,$scope.height,angular.element('#icon').attr('src'),$scope.pwd);
+                    service.net.regist($scope.mobile,$scope.code,$scope.nickname,$scope.sex,$scope.star,$scope.height,angular.element('#icon').attr('src'),$scope.pwd);
                 }
             });
         }

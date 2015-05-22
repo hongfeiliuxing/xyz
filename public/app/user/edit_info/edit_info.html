@@ -16,10 +16,14 @@
             </label>
         </div>
         <div class="form-group">
-            <label for="birthday" class="control-label col-xs-3 col-xs-offset-1">生日:</label>
-            <div class="col-xs-7">
-                <input id="birthday" ng-model="birthday" type="date" class="form-control" required>
-            </div>
+            <label for="star" class="control-label col-xs-3 col-xs-offset-1">星座:</label>
+            <!--<div class="col-xs-7">-->
+                <!--<input id="birthday" ng-model="birthday" type="date" class="form-control" required>-->
+            <!--</div>-->
+            <!--<input type="date" style="width: 65%;" ng-model="birthday" required>-->
+            <select ng-model="star" required>
+                <option ng-repeat="conste in constellation">{{conste}}</option>
+            </select>
         </div>
         <div class="form-group">
             <label for="height" class="control-label col-xs-3 col-xs-offset-1">身高<small>(cm)</small>:</label>

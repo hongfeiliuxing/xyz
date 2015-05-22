@@ -388,11 +388,11 @@ serviceModule.factory('service', ['$rootScope', '$http', function (rootScope, ht
                     rootScope.$broadcast(SERVICE_ERROR);
                 });
             },
-            regist:function(mobile,code,nickname,sex,birthday,height,icon,password){
+            regist:function(mobile,code,nickname,sex,star,height,icon,password){
                 http({
                     method: 'POST',
                     url: service.url + service.api.regist,
-                    data:{mobile:mobile,code:code,nickname:nickname,sex:sex,birthday:birthday,height:height,icon:icon,password:password}
+                    data:{mobile:mobile,code:code,nickname:nickname,sex:sex,star:star,height:height,icon:icon,password:password}
                 }).success(function (data) {
                     rootScope.$broadcast(SERVICE_REGIST, data);
                 }).error(function () {
