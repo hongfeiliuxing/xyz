@@ -399,11 +399,11 @@ serviceModule.factory('service', ['$rootScope', '$http', function (rootScope, ht
                     rootScope.$broadcast(SERVICE_ERROR);
                 });
             },
-            editInfo: function (nickname, sex, birthday,height) {
+            editInfo: function (nickname, sex, star,height) {
                 http({
                     method: 'POST',
                     url: service.url + service.api.edit_info+service.func.getUserId('?'),
-                    data:{nickname:nickname,sex:sex,birthday:birthday,height:height}
+                    data:{nickname:nickname,sex:sex,star:star,height:height}
                 }).success(function (data) {
                     rootScope.$broadcast(SERVICE_EDIT_INFO, data);
                 }).error(function () {

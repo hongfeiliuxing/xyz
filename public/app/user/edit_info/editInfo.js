@@ -62,7 +62,7 @@ editInfoModule.directive('submitData',['$timeout','$location','service', functio
         link:function($scope,iElm,iAttrs,controller){
             iElm.bind('click', function () {
                 iElm.button('loading');
-                service.net.editInfo($scope.nickname,$scope.sex,$scope.birthday,$scope.height);
+                service.net.editInfo($scope.nickname,$scope.sex,$scope.star,$scope.height);
             });
         }
     }

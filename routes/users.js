@@ -438,6 +438,9 @@ router.post('/edituserinfo/', function (req, res, next) {
         data.star = getStar(new Date(input.birthday));
         data.age = new Date().getYear() -new Date(input.birthday).getYear();
     }
+
+    if(input.star)data.star = input.star;
+
     console.log(data);
     if (input.icon) {
         var fileName = my_util.base64_decode(input.icon, 'icon/');
