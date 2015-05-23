@@ -313,12 +313,12 @@ router.post('/good/:id', function (req, res) {
 var yanzhibang = 'select user_info.user_id,nickname,star,icon,age,sum(good)*5 as yanzhi' +
     ' from photo,user_info' +
     ' where user_info.invalid = 0 and user_info.user_id = photo.user_id {0} group by user_id' +
-    ' order by yanzhi desc limit 0,20';
+    ' order by yanzhi desc limit 0,100';
 
 var yanzhibang2 = 'select photo.user_id,nickname,star,icon,age,count(*)*5 as yanzhi' +
     ' from user_info,photo,photo_good' +
     ' where user_info.invalid = 0 and user_info.user_id = photo.user_id and photo_good.photo_id = photo.id {0}' +
-    ' group by photo.user_id order by yanzhi desc limit 0,20';
+    ' group by photo.user_id order by yanzhi desc limit 0,100';
 
 router.get('/yanzhibang', function (req, res) {
     //var state = req.params.state;
@@ -391,7 +391,7 @@ var sqlJifenbang = 'select user_id,nickname,star,icon,age,sum(point) as jifen fr
     '(select user_info.user_id,nickname,star,icon,age,count(*)*20 as point from user_info,photo where user_info.invalid = 0 and photo.state != 2 and user_info.user_id = photo.user_id{0} group by user_id)' +
     'union all' +
     '(select user_info.user_id,nickname,star,icon,age,point from user_info,photo_good where user_info.invalid = 0 and user_info.user_id = photo_good.user_id{1})' +
-    ')a group by user_id order by point desc limit 0,20';
+    ')a group by user_id order by point desc limit 0,100';
 
 //var jifenState = {day:['and photo.date > ' +new Date().toLocaleDateString() + " GMT+0800",'and photo_good.date > ' +new Date().toLocaleDateString() + " GMT+0800"],all:['','']};
 router.get('/jifenbang/:status', function (req, res) {
