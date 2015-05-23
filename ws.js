@@ -327,7 +327,7 @@ function getMessageList(data, conn) {
     ' WHERE last_msg.user_id =?' +
     ' AND last_msg.friend_id = user_info.user_id' +
     ' AND last_msg.msg_id = chat_message.id' +
-    ' order by last_msg.updateDate limit 0,10',[conn.id],function(err, datas) {
+    ' order by last_msg.updateDate limit 0,100',[conn.id],function(err, datas) {
         datas.forEach(function(d){
             d.msg = JSON.parse(d.msg);
         });
