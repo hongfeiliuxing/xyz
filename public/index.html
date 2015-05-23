@@ -10,7 +10,7 @@
     <link rel="icon" href="resource/images/logo.png">
 </head>
 <body ng-app="appModule" user-info><!--user-info location-tab-index-->
-<div class="container-fluid" ng-controller="AppController">
+<div class="container-fluid" ng-controller="AppController" style="overflow-x: hidden">
     <div ng-include="'app/unit/navbar.html'"></div>
 
     <div ng-view class="row" class="animated fadeInDown"></div>
@@ -20,9 +20,18 @@
     <div ng-include="'app/login/login.html'" ng-controller="LoginController"></div>
     <div ng-include="'app/logout/logout.html'"></div>
     <!--<div></div>-->
-    <!--<div class="lunch-page" style="background-image:url('resource/images/po.jpg');background-size:cover;position: absolute;left: 0;top:0;width: 100%;height: 100%;background-color: white;z-index: 10000">-->
-        <!--<img src="resource/images/po.jpg" width="100%">-->
+    <div>
+        <div class="lunch-page" id="page1" style="background-size:cover;position: absolute;left: 0;top:0;width: 100%;height: 100%;background-color: white;z-index: 10000">
+            <img src="resource/images/Third.png" width="100%">
+        </div>
+        <div class="lunch-page" id="page2" style="background-size:cover;position: absolute;left: 0;top:0;width: 100%;height: 100%;background-color: white;z-index: 10000">
+            <img src="resource/images/Second.png" width="100%">
+        </div>
+        <div class="lunch-page" id="page3" style="background-size:cover;position: absolute;left: 0;top:0;width: 100%;height: 100%;background-color: white;z-index: 10000">
+            <img src="resource/images/First.png" width="100%">
+        </div>
     </div>
+
 </div>
 
 

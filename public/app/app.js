@@ -125,6 +125,16 @@ appModule.controller('AppController', ['$scope', '$timeout','service', function 
         closeEffect	: 'none'
     });
 
+    $timeout(function () {
+        $("#page3").click();
+        $timeout(function () {
+            $("#page2").click();
+            $timeout(function () {
+                $("#page1").click();
+            },2000);
+        },2000);
+    },2000);
+
 }]);
 
 
@@ -209,6 +219,7 @@ appModule.directive('lunchPage', ['$timeout','service', function($timeout,servic
                 y:0
             };
             var offsetY = 0;
+            var offsetX = 0;
             iElm.bind("touchstart", function (e) {
                 startP.x = e.originalEvent.touches[0].pageX;
                 startP.y = e.originalEvent.touches[0].pageY;
@@ -218,13 +229,16 @@ appModule.directive('lunchPage', ['$timeout','service', function($timeout,servic
                 endP.x = e.originalEvent.touches[0].pageX;
                 endP.y = e.originalEvent.touches[0].pageY;
                 offsetY = endP.y-startP.y;
-                if(offsetY>0)return;
-                iElm.css('top',offsetY);
+                offsetX = endP.x-startP.x;
+                //if(offsetY>0)return;
+                //iElm.css('top',offsetY);
+                if(offsetX>0)return;
+                iElm.css('left',offsetX);
             });
             iElm.bind("touchend", function (e) {
-                if(Math.abs(offsetY)>0)
+                if(Math.abs(offsetX)>0)
                     iElm.animate({
-                        'top':'-100%'
+                        'left':'-100%'
                     });
                 //if(Math.abs(offsetY)<iElm.height()/3){
                 //    iElm.animate({
@@ -239,7 +253,7 @@ appModule.directive('lunchPage', ['$timeout','service', function($timeout,servic
 
             iElm.bind("click", function (e) {
                 iElm.animate({
-                    'top':'-100%'
+                    'left':'-100%'
                 });
             });
 
