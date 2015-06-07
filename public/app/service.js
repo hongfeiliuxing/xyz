@@ -2,7 +2,7 @@
 
 var serviceModule = angular.module('serviceModule', [])
 
-var debug = false;
+var debug = true;
 
 var SERVICE_ERROR = 'service.error',
     SERVICE_LOGOUT = 'service.logout',
@@ -35,14 +35,15 @@ var SERVICE_ERROR = 'service.error',
     SERVICE_EDIT_ICON = 'service.editIcon',
     SERVICE_FRIEND_INFO = 'service.friendInfo',
     SERVICE_SEND_RESET_CODE = 'service.sendResetCode',
-    SERVICE_FRIEND_PHOTO = 'service.friendPhoto'
+    SERVICE_FRIEND_PHOTO = 'service.friendPhoto',
+    SERVICE_WATER_FALL = 'service.waterFall'
     ;
 
 serviceModule.factory('service', ['$rootScope', '$http', function (rootScope, http) {
     var service = {
         ws: null,
-        url: debug?'http://192.168.10.218:3000':'http://xyz.wireless-world.cn',
-        ws_url: debug?'ws://192.168.10.218:3001':'ws://xyz.wireless-world.cn:3001',
+        url: debug?'http://localhost:3000':'http://xyz.wireless-world.cn',
+        ws_url: debug?'ws://localhost:3001':'ws://xyz.wireless-world.cn:3001',
         api: {
             file_url: '/file/download/',
             userInfo: '/user/userInfo',
@@ -67,7 +68,8 @@ serviceModule.factory('service', ['$rootScope', '$http', function (rootScope, ht
             edit_info:'/user/edituserinfo',
             change_pwd:'/user/modifypassword',
             modify_pwd:'/user/modifypassword2',
-            friend_photo:'/photo/friend_photo'
+            friend_photo:'/photo/friend_photo',
+            water_fall:'/photo/waterfall'
         },
         user: {},
         config: {
@@ -459,6 +461,15 @@ serviceModule.factory('service', ['$rootScope', '$http', function (rootScope, ht
                 }).success(function (data) {
                     data.message.rankType = type;
                     rootScope.$broadcast(SERVICE_INTEGRAL_RANK, data);
+                }).error(function () {
+                    rootScope.$broadcast(SERVICE_ERROR);
+                });
+            },
+            waterFall: function () {
+                http({
+                    url: service.url + service.api.water_fall+'?sex='+service.sex
+                }).success(function (data) {
+                    rootScope.$broadcast(SERVICE_WATER_FALL, data);
                 }).error(function () {
                     rootScope.$broadcast(SERVICE_ERROR);
                 });

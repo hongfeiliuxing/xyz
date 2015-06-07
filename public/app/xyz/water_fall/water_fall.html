@@ -1,0 +1,29 @@
+<style type="text/css">
+	.water-fall>div{
+		float: left;
+		width: 44%;
+		padding: 5px;
+		margin: 10px;
+		border:1px solid gray;
+        border-radius: 5px;
+	}
+
+    .water-fall button {
+        background-color: white;
+    }
+
+</style>
+<div class="water-fall">
+    <div ng-repeat="photo in photos">
+        <img ng-src="{{service.url+service.api.file_url+photo.url}}" width="100%">
+        <div>
+            <label ng-bind="photo.nickname"></label>
+            <button class="btn" water-good-photo="{{photo.id}}" ng-disabled="photo.user_id == service.user.user_id">
+                <img ng-src="resource/images/xyz/icon-heart-hollow.png" width="21px" ng-if="!photo.isGood">
+                <img ng-src="resource/images/xyz/icon-heart-solid.png" width="21px" ng-if="photo.isGood">
+                {{photo.good||0}}
+            </button>
+        </div>
+    </div>
+    
+</div>

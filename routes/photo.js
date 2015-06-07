@@ -424,6 +424,21 @@ router.get('/jifenbang/:status', function (req, res) {
     })
 });
 
+router.get('/waterfall',function(req, res) {
+    if (!oauth.oauth(req)) {
+        return res.send({success: false, message: '请登录'});
+    }
+    var id = req.session.user.id;
+
+    var sql = 'select A.*,B.isGood from (select p.id,p.url,p.good,p.date,u.nickname from photo p,user_info u where p.user_id=u.user_id and p.state!=2 and p.activity=1) A left join (select photo_id,good as isGood from photo_good where user_id='+id+') B on A.id=B.photo_id order by A.date desc';
+
+    req.db.driver.execQuery(sql,function(err,docs){
+        if(err) return res.send({success:false,message:err});
+
+        res.send({success:true,message:docs});
+    });
+    
+})
 
 //
 //router.post('/notgood/:id', function (req, res) {

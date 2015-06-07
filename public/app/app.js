@@ -2,7 +2,7 @@
 
 
 
-var appModule = angular.module('appModule', ['ngRoute', 'ngTouch','xyzModule', 'loginModule', 'chatModule', 'userModule','yzRankModule','integralRankModule','editInfoModule','changePwdModule','friendDetailModule']);
+var appModule = angular.module('appModule', ['ngRoute', 'ngTouch','xyzModule', 'loginModule', 'chatModule','waterFallModule', 'userModule','yzRankModule','integralRankModule','editInfoModule','changePwdModule','friendDetailModule']);
 
 
 appModule.config(['$routeProvider', function ($routeProvider) {
@@ -44,6 +44,9 @@ appModule.config(['$routeProvider', function ($routeProvider) {
     }).when('/friend_detail', {
         templateUrl: 'app/chat/friend_detail/friend_detail.html',
         controller: 'FriendDetailCtrl'
+    }).when('/water_fall', {
+        templateUrl: 'app/xyz/water_fall/water_fall.html',
+        controller: 'WaterFallCtrl'
     }).otherwise({
         redirectTo: '/xyz'
     });
@@ -54,8 +57,8 @@ appModule.controller('AppController', ['$scope', '$timeout','service', function 
     scope.service = service;
 
     if(debug){
-        service.user.name = 'senpng';
-        service.user.pwd = '123456';
+        service.user.name = '15189345238';
+        service.user.pwd = '228320';
     }
     var isOtherLogin = false;
 

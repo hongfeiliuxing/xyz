@@ -378,3 +378,21 @@ xyzModule.directive('chat',['$timeout','$location','service', function ($timeout
         }
     }
 }]);
+
+xyzModule.directive('waterFall',['$timeout','$location','service', function ($timeout, $location,service) {
+    return {
+
+        link: function ($scope, iElm, iAttrs, controller) {
+            iElm.bind('click', function () {
+                if(service.user.isLogin){
+                    $timeout(function () {
+                        $location.url('/water_fall?backRoute=xyz');
+                    })
+                }else{
+                    $('#modal-login').modal('show');
+                }
+
+            });
+        }
+    }
+}]);
