@@ -432,6 +432,7 @@ router.get('/waterfall',function(req, res) {
     var p = url.parse(req.url, true).query;
 
     var sexSql="";
+    
     if(p.sex == 'girl') {
         sexSql = ' and u.sex=0';
     } else if (p.sex == 'boy') {
