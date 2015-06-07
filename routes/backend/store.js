@@ -18,10 +18,11 @@ router.post('/add', function (req, res) {
     var data = {
         name: input.name,
         type: input.type,//默认 bar
-        gps_lat: input.lat,
-        gps_lan: input.lon,//精度
+        gps_lat: input.gps_lat,
+        gps_lan: input.gps_lon,//精度
         contact: input.contact,//联系人姓名：店主姓名
-        mobile: input.mobile
+        mobile: input.mobile,
+        address:input.address
     };
 
     req.models.Store.create(data, function (err, store) {

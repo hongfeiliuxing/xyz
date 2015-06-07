@@ -154,7 +154,7 @@ router.get('/search',function(req, res) {
     if (!p.name) return res.send({success:true,message:[]});
     p.name = '%'+ p.name + '%';
     req.db.driver.execQuery(
-        "SELECT  id,username,nickname,sex,age,icon,sign,fav_photo_id,date,updateDate,lastLogin,user_id FROM user left join user_info on id = user_id where username like ? or nickname like ?"
+        "SELECT  id,username,nickname,mobile,height,star,sex,age,icon,sign,fav_photo_id,date,updateDate,lastLogin,user_id FROM user left join user_info on id = user_id where username like ? or nickname like ?"
         , [p.name, p.name], function (err, rows) {
             if (err) return res.send({success: false, message: err});
             if (rows.length > 0) {
