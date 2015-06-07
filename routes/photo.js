@@ -433,10 +433,10 @@ router.get('/waterfall',function(req, res) {
 
     var sexSql="";
     if(p.sex == 'girl') {
-        sexSql = 'and u.sex=0';
+        sexSql = ' and u.sex=0';
     } else if (p.sex == 'boy') {
         //sql = sqlPhotoWall_boy;
-        sexSql = 'and u.sex=1';
+        sexSql = ' and u.sex=1';
     }
 
     var sql = 'select A.*,B.isGood from (select p.id,p.url,p.good,p.date,u.nickname from photo p,user_info u where p.user_id=u.user_id and p.state!=2 and p.activity=1'+sexSql+') A left join (select photo_id,good as isGood from photo_good where user_id='+id+') B on A.id=B.photo_id order by A.date desc';
