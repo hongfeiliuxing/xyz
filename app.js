@@ -49,7 +49,7 @@ app.use(session({
 global.db_config = {
     host: 'localhost',
     user: 'root',
-    password: '228320',
+    password: 'Paiwode168',
     port: 3306, //port mysql
     database: 'xiuyanzhi'
 };
