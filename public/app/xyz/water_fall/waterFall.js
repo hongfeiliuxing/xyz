@@ -51,6 +51,7 @@ waterFallModule.directive('waterGoodPhoto',['$timeout','service', function ($tim
                     var photoId = iAttrs.waterGoodPhoto;
                     // if(!$scope.xyz.isGood){
                         $scope.photo.isGood = true;
+                        $scope.photo.good++;
                         service.net.goodPhoto(photoId);
                     // }
                 }else{
